@@ -19,24 +19,28 @@ Work on the main function calls first. Ill see what we can do about UI later but
   
 > //exchange(double <amount>, String <money1>, String <money2>) return double <answer>
 
-# Minigames (g)
+
+# Minigames (g) ZI JING & ZHI EN ARE WORKING ON IT
 >//g <game name> 
   
->//game name valid? playgame:error msg;
+>//game name valid? playgame:error msg; # basically make a checking function to make sure the game exists and if so call the games main function
   
-### -Tic tac toe STANLEY'S WORKING ON IT
->//
+### -Tic tac toe
+>// u know how to play tic tac toe right?
 
-### -Die roll STANLEY'S WORKING ON IT
+### -Die roll
 >//roll 2 50 # rolls random int from 2-50
 
 >//roll(int low_bound, int upp_bound) returns int <random int in range>
   
 >//animation while rolling?
-  
+ 
+ 
 # Additional Features
--Binomial Expansion
+### -Binomial Expansion SOH & STANLEY ARE WORKING ON IT
+>
 
--Truth table and karnaugh map plotter
+### -Truth table and karnaugh map plotter SOH & STANLEY WORKING ON IT
+>
 
--Bridge?
+### -Bridge?
