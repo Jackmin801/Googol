@@ -22,7 +22,7 @@ Work on the main function calls first. Ill see what we can do about UI later but
 
 # Minigames (g) 
 <h2>ZI JING & ZHI EN ARE WORKING ON IT</h2>
-> g <_game name> 
+-g <_game name> 
   
 >game name valid? playgame:error msg; # basically make a checking function to make sure the game exists and if so call the games main function
   
