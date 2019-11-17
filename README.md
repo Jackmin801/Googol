@@ -1,6 +1,5 @@
 # Googol
 <h2>FOP assignment</h2>
-Some Markdown text with <span style="color:blue">some *blue* text</span>.
 
 Work on the main function calls first. Ill see what we can do about UI later but should be pretty easy after implementing main functions
 
@@ -22,7 +21,7 @@ Work on the main function calls first. Ill see what we can do about UI later but
 
 
 # Minigames (g) 
-<h2 style={color:blue;}>ZI JING & ZHI EN ARE WORKING ON IT</h2>
+<h2>ZI JING & ZHI EN ARE WORKING ON IT</h2>
 >g game name 
   
 >game name valid? playgame:error msg; # basically make a checking function to make sure the game exists and if so call the games main function
