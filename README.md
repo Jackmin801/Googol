@@ -12,7 +12,7 @@ Work on the main function calls first. Ill see what we can do about UI later but
 ### -Calculator (c) DONE
 > calc(String <equation>) returns double <ans>
   
-> append $ to end of equation input string
+> *append $ to end of equation input string
   
 ### -Currency Exchange (x) DONE
 > x <amount> <money1> to <money2>
