@@ -44,7 +44,9 @@ Work on the main function calls first. Ill see what we can do about UI later but
 
 ### -Truth table and karnaugh map plotter
 > receive equation and plot truth table and karnaugh map
+
 > I reccomend splitting atleast 2 functions with one doing raw output in boolean[]/bitmasked-int[] and one to display
+
 > Bitmask is a lightweight way to store bools that i find rlly cool but is obviously overkill for this task but u can try if u wanna show off
 
 
