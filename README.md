@@ -1,5 +1,5 @@
 # Googol
-FOP assignment
+<h2>FOP assignment</h2>
 
 Work on the main function calls first. Ill see what we can do about UI later but should be pretty easy after implementing main functions
 
@@ -22,7 +22,7 @@ Work on the main function calls first. Ill see what we can do about UI later but
 
 # Minigames (g) 
 ## ZI JING & ZHI EN ARE WORKING ON IT
->g <game name> 
+>g game name 
   
 >game name valid? playgame:error msg; # basically make a checking function to make sure the game exists and if so call the games main function
   
