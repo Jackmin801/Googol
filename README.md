@@ -17,7 +17,7 @@ FOP assignment
   
 > //exchange(double <amount>, String <money1>, String <money2>) return double <answer>
 
-**Minigames (g)**
+# Minigames (g)
 >//g <game name> 
   
 >//game name valid? playgame:error msg;
