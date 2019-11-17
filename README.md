@@ -24,9 +24,12 @@ FOP assignment
   
 **-Tic tac toe**
 >//
+
 **-Die roll**
 >//roll 2 50 # rolls random int from 2-50
+
 >//roll(int low_bound, int upp_bound) returns int <random int in range>
+  
 >//animation while rolling?
   
 # Additional Features
