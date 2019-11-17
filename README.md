@@ -5,24 +5,24 @@ Work on the main function calls first. Ill see what we can do about UI later but
 
 # Main functions
 ### -Search (s/null) JACK'S WORKING ON IT
-> query(String[] <list of search parameters>) returns int[]<_index of links satisfying condition>
+> query(String[] <_list of search parameters>) returns int[]<_index of links satisfying condition>
   
-> dispLink(int <index>) returns String<html formatted output/raw link>
+> dispLink(int <_index>) returns String<_html formatted output/raw link>
 
 ### -Calculator (c) DONE
-> calc(String <equation>) returns double <ans>
+> calc(String <_equation>) returns double <_ans>
   
 > *append $ to end of equation input string
   
 ### -Currency Exchange (x) DONE
-> x <amount> <money1> to <money2>
+> x <_amount> <_money1> to <_money2>
   
-> exchange(double <amount>, String <money1>, String <money2>) return double <answer>
+> exchange(double <_amount>, String <_money1>, String <_money2>) return double <_answer>
 
 
 # Minigames (g) 
 <h2>ZI JING & ZHI EN ARE WORKING ON IT</h2>
->g game name 
+>g <_game name> 
   
 >game name valid? playgame:error msg; # basically make a checking function to make sure the game exists and if so call the games main function
   
