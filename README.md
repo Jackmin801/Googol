@@ -1,5 +1,6 @@
 # Googol
 <h2>FOP assignment</h2>
+Some Markdown text with <span style="color:blue">some *blue* text</span>.
 
 Work on the main function calls first. Ill see what we can do about UI later but should be pretty easy after implementing main functions
 
