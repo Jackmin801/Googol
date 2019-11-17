@@ -2,18 +2,18 @@
 FOP assignment
 
 # Main functions
-** -Search (s/null) **
+**-Search (s/null)**
 
 > //query(String[] <list of search parameters>) returns int[] <index of links satisfying condition>
-//dispLink(int <index>) returns String<html formatted output/raw link>
+>//dispLink(int <index>) returns String<html formatted output/raw link>
 
 -Calculator (c)
-//calc(String <equation>) returns double <ans>
-//append $ to end of equation input string
+>//calc(String <equation>) returns double <ans>
+>//append $ to end of equation input string
   
 -Currency Exchange (x)
-//x <amount> <money1> to <money2>
-//exchange(double <amount>, String <money1>, String <money2>) return double <answer>
+> //x <amount> <money1> to <money2>
+> //exchange(double <amount>, String <money1>, String <money2>) return double <answer>
 
 Minigames (g)
 //g <game name> 
