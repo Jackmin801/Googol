@@ -34,5 +34,7 @@ FOP assignment
   
 # Additional Features
 -Binomial Expansion
+
 -Truth table and karnaugh map plotter
+
 -Bridge?
