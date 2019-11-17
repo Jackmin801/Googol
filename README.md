@@ -5,7 +5,7 @@ Work on the main function calls first. Ill see what we can do about UI later but
 
 # Main functions
 ### -Search (s/null) JACK'S WORKING ON IT
-> query(String[] <list of search parameters>) returns int[] <index of links satisfying condition>
+> query(String[] <list of search parameters>) returns int[]<index of links satisfying condition>
   
 > dispLink(int <index>) returns String<html formatted output/raw link>
 
