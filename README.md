@@ -2,7 +2,7 @@
 FOP assignment
 
 # Main functions
-**-Search (s/null)**
+### -Search (s/null)
 > //query(String[] <list of search parameters>) returns int[] <index of links satisfying condition>
   
 >//dispLink(int <index>) returns String<html formatted output/raw link>
