@@ -7,12 +7,12 @@ FOP assignment
   
 >//dispLink(int <index>) returns String<html formatted output/raw link>
 
-**-Calculator (c)**
+### -Calculator (c)
 >//calc(String <equation>) returns double <ans>
   
 >//append $ to end of equation input string
   
-**-Currency Exchange (x)**
+### -Currency Exchange (x)
 > //x <amount> <money1> to <money2>
   
 > //exchange(double <amount>, String <money1>, String <money2>) return double <answer>
@@ -22,10 +22,10 @@ FOP assignment
   
 >//game name valid? playgame:error msg;
   
-**-Tic tac toe**
+### -Tic tac toe
 >//
 
-**-Die roll**
+### -Die roll
 >//roll 2 50 # rolls random int from 2-50
 
 >//roll(int low_bound, int upp_bound) returns int <random int in range>
