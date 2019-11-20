@@ -1,0 +1,34 @@
+/*{margin:0;padding:0;}*/
+
+a {
+    color:#1e5631;
+    font-weight: bold;
+}
+
+body {
+    background-color:#1e5631;
+}
+
+h4{
+    padding: 0;
+    margin:0;
+    color:#4c9a2a;
+}
+
+header{
+    text-align: center;
+    color:white;
+}
+
+.container{
+    background-color: #a4de02;
+    padding: 1em;
+    margin:1em;
+}
+
+#query{
+    color:#999;
+    padding:1em;
+    width: 80%;
+}
+
