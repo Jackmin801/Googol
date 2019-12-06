@@ -58,6 +58,11 @@ public class binomial {
                 return;
             }
 
+            if(a.contains(".") || b.contains(".")){
+                System.out.println("Cannot handle non-integer coefficients");
+                return;
+            }
+
             if(aV.equals(bV) && !aV.equals(" ")){
                 System.out.println("Cannot have 2 same variables");
                 return;
