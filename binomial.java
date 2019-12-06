@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
-public class Binomial {
+public class binomial {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter the expression");
@@ -25,6 +25,11 @@ public class Binomial {
     }
     
     public static void binomial(String exp, int power){
+        //prevent overflow
+        if(power <= 0 || power > 20){
+            System.out.println("The exponent must be equal or greater than 1 or lesser or equal to 20");
+            return;
+        }
         //try statement to catch wrong input format
         try{
                 String finale = "";
@@ -48,10 +53,29 @@ public class Binomial {
             int bC = coefficientExt(b) * midOp;
             String bV = "" + varExt(b);
             int bP = powerExt(b);
+            if(aV.equals("1") || bV.equals("1")){
+                System.out.println("Cannot handle more than 1 variable per coefficient ");
+                return;
+            }
+
+            if(aV.equals(bV) && !aV.equals(" ")){
+                System.out.println("Cannot have 2 same variables");
+                return;
+            }else if(aV.equals(bV) && aV.equals(" ")){
+                System.out.println("Must have at least 1 variable");
+                return;
+            }
+            
+            //if(aV.length() > 1 || bV.length(){
+
+            //}
 
             for (int i = 0, j = power; i <= power; i++, j --){
                 if(i == 0){
-                    finale += power(aC, power);
+                    if(aC != 1){
+                        finale += String.format("%.0f", power(aC, power));
+                    }
+                    
                     if(!aV.equals(" ")){
                         finale += aV;
                         if (power != 1){
@@ -64,7 +88,9 @@ public class Binomial {
 
                 }else if(i == power && midOp ==1){
                     finale += "+";
-                    finale += power(bC, power);
+                    if(bC != 1){
+                        finale += String.format("%.0f", power(bC, power));
+                    }
                     if(!bV.equals(" ")){
                         finale += bV;
                         if (power != 1){
@@ -74,7 +100,10 @@ public class Binomial {
                     }
                     finale += " ";
                 }else if(i == power && midOp == -1){
-                    finale += power(bC, power);
+                    if(bC != 1){
+                        finale += finale += String.format("%.0f", power(bC, power));;
+                    }
+                    
                     if(!bV.equals(" ")){
                         finale += bV;
                         if (power != 1){
@@ -85,7 +114,8 @@ public class Binomial {
                     finale += " ";
                 }else if(j%2 == 0 && midOp == 1 || i%2 == 0 && firstOp == 1 || firstOp == -1 && midOp == -1 && power%2 == 0 || firstOp == 1 && midOp == 1){
                     finale += "+";
-                    finale += (power(aC,j)* power(bC, i) * biCo(power, i));
+                    String coefficient = String.format("%.0f", (double) (power(aC,j)* power(bC, i) * biCo(power, i)));
+                    finale += coefficient;
                     if(!aV.equals(" ")){
                         finale += aV;
                         if(aP*j != 1)
@@ -98,7 +128,8 @@ public class Binomial {
                     }
                     finale += " ";
                 }else{
-                    finale += (power(aC,j)* power(bC, i) * biCo(power, i));
+                    String coefficient = String.format("%.0f", (double) (power(aC,j)* power(bC, i) * biCo(power, i)));
+                    finale += coefficient;
                     if(!aV.equals(" ")){
                         finale += aV;
                         if(aP*j != 1)
@@ -125,7 +156,7 @@ public class Binomial {
         int b = 0;
         int counter = 0;
         try{
-          while(a.charAt(counter) <= '9' && a.charAt(counter) >= '1'){
+          while(a.charAt(counter) <= '9' && a.charAt(counter) >= '0'){
             b *= 10;
             b += a.charAt(counter) - '0';
             counter +=1;
@@ -133,6 +164,9 @@ public class Binomial {
         }
         catch(IndexOutOfBoundsException e){
 
+        }
+        if(b == 0){
+            return 1;
         }
         return b;
       }
@@ -142,13 +176,20 @@ public class Binomial {
     public static char varExt(String a){
         int counter = 0;
         try{
-            while(a.charAt(counter) <= '9' && a.charAt(counter) >= '1'){
+            while(a.charAt(counter) <= '9' && a.charAt(counter) >= '0'){
                 counter +=1;
             }
         }catch(IndexOutOfBoundsException e){
             return ' ';
         }
+        try{
+            if(a.charAt(counter+1) >= 'A' && a.charAt(counter+1) <= 'Z' || a.charAt(counter+1) >= 'a' && a.charAt(counter+1) <= 'z'){
+                return '1';
+            }
+        }catch(IndexOutOfBoundsException e){
 
+        }
+        
         return a.charAt(counter);
     }
 
@@ -156,7 +197,7 @@ public class Binomial {
     public static int powerExt(String a){
         int b = 0;
         int counter = 0;
-        try{ while(a.charAt(counter) <= '9' && a.charAt(counter) >= '1'){
+        try{ while(a.charAt(counter) <= '9' && a.charAt(counter) >= '0'){
             b *= 10;
             b += a.charAt(counter) - '0';
             counter +=1;
@@ -177,7 +218,7 @@ public class Binomial {
         }
         
         try{
-            while(a.charAt(counter) <= '9' && a.charAt(counter) >= '1'){
+            while(a.charAt(counter) <= '9' && a.charAt(counter) >= '0'){
                 b *= 10;
                 b += a.charAt(counter) - '0';
                 counter +=1;
@@ -195,8 +236,8 @@ public class Binomial {
         return biCo(n-1, r-1) + biCo(n-1, r); 
     }
     
-    //returning int version of Math.pow
-    static int power(int x, int power){
-        return (int)Math.pow(x,power);
+    //lazy to type out math.pow everytime
+    static double power(int x, int power){
+        return Math.pow(x,power);
     }
 }
