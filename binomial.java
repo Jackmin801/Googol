@@ -32,7 +32,7 @@ public class binomial {
         }
         //try statement to catch wrong input format
         try{
-                String finale = "";
+            String finale = "";
             int firstOp = 1;
             if(exp.charAt(0) == '-'){
                 exp = exp.substring(1);
@@ -74,10 +74,39 @@ public class binomial {
             //if(aV.length() > 1 || bV.length(){
 
             //}
-
+            if(aC == 0 && bC == 0){
+                System.out.println("0");
+                return;
+            }else if(bC == 0){
+                if(aC != 1){
+                    finale += String.format("%.0f", power(aC, power));
+                }
+                
+                if(!aV.equals(" ")){
+                    finale += aV;
+                    if (power != 1){
+                        finale += "^" + (aP*power);
+                    }
+                }
+                System.out.println(finale);
+                return;
+            }else if(aC == 0){
+                if(bC != 1){
+                    finale += String.format("%.0f", power(bC, power));
+                }
+                
+                if(!aV.equals(" ")){
+                    finale += bV;
+                    if (power != 1){
+                        finale += "^" + (bP*power);
+                    }
+                }
+                System.out.println(finale);
+                return;
+            }
             for (int i = 0, j = power; i <= power; i++, j --){
                 if(i == 0){
-                    if(aC != 1){
+                    if(aC != 1 && aC != 0){
                         finale += String.format("%.0f", power(aC, power));
                     }
                     
@@ -91,9 +120,11 @@ public class binomial {
                     finale += " ";
 
 
+                }else if(i == power && bC == 0){
+                    finale += "";
                 }else if(i == power && midOp ==1){
                     finale += "+";
-                    if(bC != 1){
+                    if(bC != 1 ){
                         finale += String.format("%.0f", power(bC, power));
                     }
                     if(!bV.equals(" ")){
@@ -170,7 +201,7 @@ public class binomial {
         catch(IndexOutOfBoundsException e){
 
         }
-        if(b == 0){
+        if(b == 0 && counter == 0){
             return 1;
         }
         return b;
