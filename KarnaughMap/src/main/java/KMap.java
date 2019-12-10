@@ -1,24 +1,83 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.mariuszgromada.math.mxparser.*;
 import java.util.Scanner;
 
 public class KMap{
     public static void main(String[] args){
+        int bit=0;
+        int counter=0,counter1=0;//counter1 for line 38 to insert output value,while counter is not specific
+        boolean pass=false;//use for line 38 to be compatible to graycode
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the boolean expression below: ");
-        System.out.println("Note: AND operators must always be explicitly written in the form of parentheses or * or && operators\n");
-
-        String expression = sc.nextLine();
+        System.out.println("Note: AND operators must always be explicitly written in the form of * or && operators");
         
+        String expression = sc.nextLine();
         String[] arr = uniqChars(expression);
         
-        //System.out.println(Arrays.toString(arr)); to test whether I'm filtering out the correct characters
-        //System.out.println(expParser("x(y)"));
-        int[][] truthTable = TruthTable(arr, expression);
+        //System.out.println(Arrays.toString(arr)); //to test whether I'm filtering out the correct characters
 
-        
+        int[][] truthTable = TruthTable(arr, expression);
+        bit=truthTable[0].length-1;
+        int [] temp=new int[(int)Math.pow(2,bit)];
+        for(int i=0;i<truthTable.length;i++){   //store the output into an array follow the graycode for printing
+            if(counter1>15)
+                break;
+            if(i==8&&pass==false){
+                i+=4;
+            }
+            if(i==15&&pass==false){
+                pass=true;
+                i-=7;
+            }
+            if((i==2||i==6||i==10||i==14)&&arr.length!=2){
+                temp[counter1]=truthTable[i+1][arr.length];
+                temp[counter1+1]=truthTable[i][arr.length];
+                i++;
+                counter1++;
+            }
+            else
+                temp[counter1]=truthTable[i][arr.length];
+            if(i==15)
+                i--;
+            counter1++;
+        }
+          String[] test = grayGen2(bit);
+//        System.out.println(Arrays.toString(test)); //Used to test out the advanced gray code generator
+            //K-map
+          System.out.println("K-map");
+          for(int i=2;i<=arr.length+1;i++){     //generate A\BC etc.
+                System.out.print(arr[i-2]);
+                if(arr.length%i!=0&&i<=arr.length||arr.length==2&&(i-2)<arr.length-1)
+                    System.out.print("\\");
+            }
+          System.out.print("\t");
+          if(bit==2)
+              counter=2;
+          else if(bit==3)
+              counter=4;
+          else if(bit==4)
+              counter=4;
+          for(int i=0;i<counter;i++){           //print out first row of k-map
+              for(int j=(int)Math.ceil(arr.length/2);j<arr.length;j++){
+                  System.out.print(test[i].charAt(j));
+              }
+              System.out.print("\t");
+          }
+          System.out.println("");
+          counter1=0;
+          for(int i=0;i<Math.pow(2,bit);i+=counter){       //print out the consecutive line 
+              for(int j=0;j<bit/2;j++){
+                  System.out.print(test[i].charAt(j));
+              }
+              System.out.print("\t");
+              for(int j=0;j<counter;j++){
+                  System.out.print(temp[counter1]+"\t");
+                  counter1++;
+              }
+              System.out.println("");
+          }
     }
+    
 
     public static String[] uniqChars(String exp) {
         // split the original string by logical operators
@@ -41,7 +100,7 @@ public class KMap{
                 unique1.add(listChars[i]);
             }
         }
-
+ 
         unique = unique1.toArray(new String[unique1.size()]);
         if(unique.length > 4){
             System.out.println("Cannot have more than 4 variables");
@@ -55,7 +114,7 @@ public class KMap{
          * System.out.println("Wrong input format"); String[] arr = new String[0];
          * return arr; }
          */
-
+ 
     }
 
     public static int[][] TruthTable(String[] arr, String exp){
@@ -66,6 +125,7 @@ public class KMap{
         int n = arr.length;
         int rows = (int) Math.pow(2, n);
         int[][] result = new int[rows][n+1];
+        System.out.println("Truth Table");
         for (int i = 0; i < n; i++) {
             System.out.print(arr[i] + " ");
         }
@@ -96,6 +156,23 @@ public class KMap{
             }
             //System.out.println(tempString); used to check whether I'm replacing correctly
             //System.out.println(Arrays.toString(result[i])); (used to check whether I'm storing the correct values)
+            while(tempString.contains("!")){
+                    int index = tempString.indexOf("!");
+                    if(tempString.charAt(index+1) > '0'){
+                        tempString = tempString.substring(0, index) + '1' + tempString.substring(index+1);
+                    }else{
+                        tempString = tempString.substring(0, index) + '0' + tempString.substring(index+1);
+                    }
+                }
+                
+                while(tempString.contains("~")){
+                    int index = tempString.indexOf("~");
+                    if(tempString.charAt(index+1) > '0'){
+                        tempString = tempString.substring(0, index) + '1' + tempString.substring(index+1);
+                    }else{
+                        tempString = tempString.substring(0, index) + '0' + tempString.substring(index+1);
+                    }
+                }
             System.out.printf(" %3d", expParser(tempString));
             result[i][k] = expParser(tempString);
             System.out.println();
@@ -105,25 +182,66 @@ public class KMap{
     }
 
     public static int expParser(String expression) {
-//        Constant T = new Constant("1 = 1");
-//        Constant F = new Constant("0 = 0");
+        //Constant T = new Constant("T = 1");
+        //Constant F = new Constant("F = 0");
+        String store = expression;
         // replacing the operators into operators that can be found in the parsing library
-        expression  = expression.replaceAll("!", "~");
-        expression  = expression.replaceAll("\\*", "&&");
-        expression  = expression.replaceAll("\\+", "||");
-        expression  = expression.replaceAll("\\(", "*1*(");
-        expression  = expression.replaceAll("\\)", ")*1*");
-        if(expression.charAt(0) == '*'){
-            expression = expression.replaceFirst("*", "");
-        }
-        if(expression.charAt(expression.length()-1) == '*'){
-            expression = replaceLast(expression,"*", "");
-        }
-        //System.out.println(expression);
-        Expression e = new Expression(expression);
-        return (int)e.calculate();
+        //store  = expression.replaceAll("!", "~");
+        store  = store.replaceAll("&&", "*");
+        store  = store.replaceAll("\\|\\|", "+");
+//        store  = expression.replaceAll("\\|\\|", ")||(");
+//        store  = store.replaceAll("\\(", "*1*(");
+//        store  = store.replaceAll("\\)", ")*1*");
+//        if(store.charAt(0) == '*'){
+//            store = store.replaceFirst("*", "");
+//        }
+//        if(store.charAt(expression.length()-1) == '*'){
+//            store = replaceLast(store,"*", "");
+//        }
+        //System.out.print("THIS IS THE exp: " + expression + "       OUTPUT:");
+        Expression e = new Expression(store);
+        return  Double.parseDouble(e.calculate(e.expression)) > 0? 1:0;
     }
     
+    //hardcoded version for gray code generator 
+    public static String grayGen(int i, int bits){
+        if(bits == 1 && i == 0){
+            return "0";
+        }else if(bits == 1 && i == 1){
+            return "1";
+        }
+        
+        switch(i){
+            case 0: 
+                return "00";
+            case 2:
+                return "01";
+            case 3:
+                return "11";
+            case 4:
+                return "10";
+        }
+        
+        return "ERROR";
+    }
+    
+    //advanced gray code generator, but is slow and is in the form of an array
+    public static String[] grayGen2(int bits){
+        String[] memo;
+        if(bits == 1){
+            memo = new String[]{"0","1"};
+            return memo;
+        }else{
+            memo = new String[(int)Math.pow(2, bits)];
+            for(int i = 0; i < (int)Math.pow(bits, 2)/2; i++){
+                memo[i] = "0"+grayGen2(bits-1)[i];
+            }
+            for(int i = (int)Math.pow(2, bits)/2, j = (int)Math.pow(2, bits)/2-1; i < (int)Math.pow(2, bits); i++, j--){
+                memo[i] = "1"+grayGen2(bits-1)[j];
+            }
+        }
+        return memo;
+    }
     public static String replaceLast(String string, String toReplace, String replacement) {
     int pos = string.lastIndexOf(toReplace);
     if (pos > -1) {
