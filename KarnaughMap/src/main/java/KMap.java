@@ -7,14 +7,14 @@ public class KMap{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the boolean expression below: ");
-        System.out.println("Note: AND operators must always be explicitly written in the form of parentheses or * and && operators");
-        
+        System.out.println("Note: AND operators must always be explicitly written in the form of parentheses or * or && operators\n");
+
         String expression = sc.nextLine();
         
         String[] arr = uniqChars(expression);
         
         //System.out.println(Arrays.toString(arr)); to test whether I'm filtering out the correct characters
-
+        //System.out.println(expParser("x(y)"));
         int[][] truthTable = TruthTable(arr, expression);
 
         
@@ -29,12 +29,16 @@ public class KMap{
         String[] listChars = exp.split("[&!|()~+* ]");
         ArrayList<String> unique1 = new ArrayList<String>();
         for (int i = 0; i < listChars.length; i++) {
-            if (!unique1.contains(listChars[i]) && !listChars[i].equals("") && listChars[i].length() <= 1) {
-                unique1.add(listChars[i]);
-            } else if(!listChars[i].equals("") && (listChars[i].compareToIgnoreCase("a") >= 0 && listChars[i].compareToIgnoreCase("z") <= 0)){
+            if(!listChars[i].equals("") && (!(listChars[i].compareTo("a") >= 0 && listChars[i].compareTo("z") <= 0)&&!(
+                    listChars[i].compareTo("A") >= 0 && listChars[i].compareTo("Z") <= 0 ))){
                 // checks whether the split string contains any other character aside from letters or empty string
+                if(listChars[i].equals("1") || listChars[i].equals("0")){
+                    continue;
+                }
                 System.out.println("Wrong Input Format");
                 return new String[0];
+            }else if (!unique1.contains(listChars[i]) && !listChars[i].equals("") && listChars[i].length() <= 1) {
+                unique1.add(listChars[i]);
             }
         }
 
@@ -107,7 +111,27 @@ public class KMap{
         expression  = expression.replaceAll("!", "~");
         expression  = expression.replaceAll("\\*", "&&");
         expression  = expression.replaceAll("\\+", "||");
+        expression  = expression.replaceAll("\\(", "*1*(");
+        expression  = expression.replaceAll("\\)", ")*1*");
+        if(expression.charAt(0) == '*'){
+            expression = expression.replaceFirst("*", "");
+        }
+        if(expression.charAt(expression.length()-1) == '*'){
+            expression = replaceLast(expression,"*", "");
+        }
+        //System.out.println(expression);
         Expression e = new Expression(expression);
         return (int)e.calculate();
     }
+    
+    public static String replaceLast(String string, String toReplace, String replacement) {
+    int pos = string.lastIndexOf(toReplace);
+    if (pos > -1) {
+        return string.substring(0, pos)
+             + replacement
+             + string.substring(pos + toReplace.length(), string.length());
+    } else {
+        return string;
+    }
+}
 }
