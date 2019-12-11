@@ -109,15 +109,11 @@ public class KMap{
         
         System.out.println(Arrays.toString(unique));
         return unique;
-        /*
-         * } catch (IllegalArgumentException e) {
-         * System.out.println("Wrong input format"); String[] arr = new String[0];
-         * return arr; }
-         */
- 
+        
     }
 
     public static int[][] TruthTable(String[] arr, String exp){
+        //if fed with an empty array, no truth table can be generated as there are no variables
         if(arr.length == 0){
             System.out.println("Unable to generate truth table");
             return new int[0][0];
@@ -156,6 +152,7 @@ public class KMap{
             }
             //System.out.println(tempString); used to check whether I'm replacing correctly
             //System.out.println(Arrays.toString(result[i])); (used to check whether I'm storing the correct values)
+            //Finds NOT operators and negates the following variable's value
             while(tempString.contains("!")){
                     int index = tempString.indexOf("!");
                     if(tempString.charAt(index+1) > '0'){
@@ -173,6 +170,8 @@ public class KMap{
                         tempString = tempString.substring(0, index) + '0' + tempString.substring(index+1);
                     }
                 }
+
+            //formatting so that the output result looks neat
             System.out.printf(" %3d", expParser(tempString));
             result[i][k] = expParser(tempString);
             System.out.println();
@@ -182,24 +181,14 @@ public class KMap{
     }
 
     public static int expParser(String expression) {
-        //Constant T = new Constant("T = 1");
-        //Constant F = new Constant("F = 0");
         String store = expression;
-        // replacing the operators into operators that can be found in the parsing library
-        //store  = expression.replaceAll("!", "~");
+        // replacing the operators into operators that are used in the calculator
         store  = store.replaceAll("&&", "*");
         store  = store.replaceAll("\\|\\|", "+");
-//        store  = expression.replaceAll("\\|\\|", ")||(");
-//        store  = store.replaceAll("\\(", "*1*(");
-//        store  = store.replaceAll("\\)", ")*1*");
-//        if(store.charAt(0) == '*'){
-//            store = store.replaceFirst("*", "");
-//        }
-//        if(store.charAt(expression.length()-1) == '*'){
-//            store = replaceLast(store,"*", "");
-//        }
-        //System.out.print("THIS IS THE exp: " + expression + "       OUTPUT:");
+        //uses the calculator class but slightly modified
         Expression e = new Expression(store);
+        //a boolean expression functions just like a normal algebraic expression, but the output can only be 1 or 0
+        //so, modify the output so that if it's greater than 1, it outputs 1 and zero otherwise
         return  Double.parseDouble(e.calculate(e.expression)) > 0? 1:0;
     }
     
@@ -227,11 +216,15 @@ public class KMap{
     
     //advanced gray code generator, but is slow and is in the form of an array
     public static String[] grayGen2(int bits){
+        //Gray code has a pattern where it repeats its prior bits after the MSB when the MSB is zero. 
+        //When the MSB is 1, it repeats its prior bits but in reverse.
         String[] memo;
+        //Default case
         if(bits == 1){
             memo = new String[]{"0","1"};
             return memo;
         }else{
+            //otherwise, iterates through the array of lesser bits and adds a zero or one in front
             memo = new String[(int)Math.pow(2, bits)];
             for(int i = 0; i < (int)Math.pow(bits, 2)/2; i++){
                 memo[i] = "0"+grayGen2(bits-1)[i];
@@ -242,14 +235,5 @@ public class KMap{
         }
         return memo;
     }
-    public static String replaceLast(String string, String toReplace, String replacement) {
-    int pos = string.lastIndexOf(toReplace);
-    if (pos > -1) {
-        return string.substring(0, pos)
-             + replacement
-             + string.substring(pos + toReplace.length(), string.length());
-    } else {
-        return string;
-    }
-}
+
 }
