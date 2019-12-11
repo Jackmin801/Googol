@@ -8,6 +8,7 @@ public class binomial {
 
         //split the string into an array with the delimitter as ")"
         String[] splitArray = exp.split("\\)");
+
         splitArray[0] = splitArray[0].replace("(", "");
         //replace the right parenthesis in the expression
         int store;
@@ -44,6 +45,7 @@ public class binomial {
             }
             //split the expression by their middle section
             String[] binomials = exp.split("[+-]");
+            //System.out.println("SPLIT ARRAY IS" + Arrays.toString(binomials)); Used to see how the expression is split
             //obtaining the separate terms of the binomial expansion
             String a = binomials[0];
             String b = binomials[1];
@@ -55,6 +57,11 @@ public class binomial {
             int bP = powerExt(b);
             if(aV.equals("1") || bV.equals("1")){
                 System.out.println("Cannot handle more than 1 variable per coefficient ");
+                return;
+            }
+
+            if(aV.equals("2") || bV.equals("2")){
+                System.out.println("Wrong input format, no variable detected");
                 return;
             }
 
@@ -221,11 +228,14 @@ public class binomial {
         try{
             if(a.charAt(counter+1) >= 'A' && a.charAt(counter+1) <= 'Z' || a.charAt(counter+1) >= 'a' && a.charAt(counter+1) <= 'z'){
                 return '1';
+                // used to check whether there are more than 1 variables per coefficient
             }
         }catch(IndexOutOfBoundsException e){
 
         }
-        
+        if(a.charAt(counter+1) >= 'A' && a.charAt(counter+1) <= 'Z' || a.charAt(counter+1) >= 'a' && a.charAt(counter+1) <= 'z'){
+            return '2';
+        }
         return a.charAt(counter);
     }
 
