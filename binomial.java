@@ -105,7 +105,7 @@ public class binomial {
                 if(!aV.equals(" ")){
                     finale += bV;
                     if (power != 1){
-                        finale += "^" + (bP*power);
+                        finale += "<sup>" + (bP*power) + "</sup>";
                     }
                 }
                 System.out.println(finale);
@@ -137,7 +137,7 @@ public class binomial {
                     if(!bV.equals(" ")){
                         finale += bV;
                         if (power != 1){
-                            finale += "^" + (bP*power);
+                            finale += "<sup>" + (bP*power) + "</sup>";
                         }
                         
                     }
@@ -150,7 +150,7 @@ public class binomial {
                     if(!bV.equals(" ")){
                         finale += bV;
                         if (power != 1){
-                            finale += "^" + (bP*power);
+                            finale += "<sup>" + (bP*power) + "</sup>";
                         }
                     }
                     
@@ -162,12 +162,12 @@ public class binomial {
                     if(!aV.equals(" ")){
                         finale += aV;
                         if(aP*j != 1)
-                        finale += "^" + (aP*j);
+                        finale += "<sup>" + (aP*j) + "</sup>";
                     }
                     if(!bV.equals(" ")){
                         finale += bV;
                         if(bP*i != 1)
-                        finale += "^" + (bP*i);
+                        finale +=  "<sup>" + (bP*i) + "</sup>";
                     }
                     finale += " ";
                 }else{
@@ -176,12 +176,12 @@ public class binomial {
                     if(!aV.equals(" ")){
                         finale += aV;
                         if(aP*j != 1)
-                        finale += "^" + (aP*j);
+                        finale += "<sup>" + (aP*j) + "</sup>";
                     }
                     if(!bV.equals(" ")){
                         finale += bV;
                         if(bP*i != 1)
-                        finale += "^" + (bP*i);
+                        finale += "<sup>" + (bP*i) + "</sup>";
                     }
                     finale += " ";
                 }
