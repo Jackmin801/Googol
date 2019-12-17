@@ -1,0 +1,19 @@
+
+a {color:#1e5631;font-weight: bold;}
+
+body {background-color:#1e5631;}
+
+h4{padding:0;margin:0;color:#4c9a2a;}
+
+header{text-align:center;color:white;}
+
+.container{background-color:#a4de02;padding:1em;margin:1em;}
+
+#query{color:#999;padding:1em;width: 80%;}
+
+
+<style>a {color:#292929;font-weight: bold;}body {background-color:#1b1b1b;}h4{padding:0;margin:0;color:#808080;}header{text-align:center;color:white;}.container{background-color:#ffa31a;padding:1em;margin:1em;}#query{color:#999;padding:1em;width: 80%;}</style>
+
+<style>a {color:#1e5631;font-weight: bold;}body {background-color:#1e5631;}h4{padding:0;margin:0;color:#4c9a2a;}header{text-align:center;color:white;}.container{background-color:#a4de02;padding:1em;margin:1em;}#query{color:#999;padding:1em;width: 80%;}</style>
+
+* {margin:0;padding:0;}a {color:#1e5631;font-weight: bold;}body {background-color:#1e5631;}h4{padding: 0;margin:0;color:#4c9a2a;}header{text-align: center;color:white;background-color: #1a4531;display:grid;grid-template-columns:1fr 4fr;}.container{background-color: #a4de02;padding: 1em;margin:1em;border-radius: 50px;}#form{margin: 7%;}#query{color:#999;padding:1em;width: 80%;}

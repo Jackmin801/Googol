@@ -1,0 +1,116 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 Dec 2019, 9:19:44 PM
+    Author     : RAVEN
+*/
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+ }
+ 
+ body{
+     max-height: 100%;
+     max-width: 100%;
+     margin: 0;
+     background-image: url('background.png');
+ }
+ 
+ 
+ #logoimg{
+     display: block;
+     height: 20%;
+     width: 20%;
+     margin-left: auto;
+     margin-right: auto;
+     padding-top: 10px;
+ }
+ 
+ #searchbar{
+     margin: auto;
+     display: block;
+     width: 35%;
+     height:5%;
+     margin-top : 30px;
+ }
+ 
+ #form
+ {   
+     height:42px;
+     text-align: center;
+     border-radius: 15px;
+     background-color: white;
+ }
+ 
+ input{
+   width:80%;
+   height:80%;
+   display:inline-block;
+   margin-top:5px;
+   border-radius: 15px;
+   border: none;
+   text-align: left;
+   float: left;
+   padding-left: 20px;
+ }
+ 
+ input:focus,
+ select:focus,
+ textarea:focus,
+ button:focus {
+     outline: none;
+ }
+ 
+ a{
+     width:80%;
+     margin-left:10%;
+     margin-right:auto;
+ }
+ .feature1 img{
+     width: 80%;
+     height: 80%;
+     margin-left: auto;
+     margin-top:5%;
+ }
+ 
+ #featureT img{
+     width: 80%;
+     height: 80%;
+     margin-left: auto;
+     margin-top: 5%;
+ }
+ 
+ #featureT{
+     width: 10%;
+     height: 10%;
+     display: inline-block;
+     margin-left: 15%;
+     background-color: #276548;
+     border-radius: 15px;
+ }
+ 
+ #features{
+     margin-top: 5%;
+     width: 100%;
+ }
+ 
+ .feature1{
+     width: 10%;
+     height: 10%;
+     display: inline-block;
+     margin:auto;
+     margin-left:5%;
+     background-color: #276548;
+     border-radius: 15px;
+ }
+ 
+ #featureT:hover,
+ .feature1:hover{
+     background-color: #4dc18b;
+ }
+ 
+ 
