@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Googol Documentation</title>
+        <link rel=stylesheet type="text/css" href="documentation.css">
+        <script src = collapsible.js></script>
+        <link rel="shortcut icon" type="image/png" href="https://i.imgur.com/54lUTMx.png"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="container">
+            <div id ="searchbar">
+                <img src="https://i.imgur.com/54lUTMx.png" alt="googol logo" id = "logoimg">
+                <form id="form" action="http://localhost:8080/jacksteam/googol/api/query" method="GET">
+                    <input type="text" placeholder= "What are you looking for?" id="query" name="q" onkeypress="querySubmit">
+                </form>
+            </div>
+                <button type="button" class = "collapsible">TicTacToe</button>
+                <div class = "content">
+                    <p>
+                        In order to access the tictactoe game, type "c" with a trailing whitespace, 
+                        followed by the expression you want to calculate within the search bar.
+                    </p>
+                    <p>
+                        Example: "c (250)*100-25")
+                    </p>
+                </div>
+                <button type="button" class = "collapsible">Calculator</button>
+                <div class = "content">
+                    <p>
+                        In order to access the calculator function, type "c" with a trailing whitespace, 
+                        followed by the expression you want to calculate within the search bar.
+                    </p>
+                    <p>
+                        Example: "c (250)*100-25")
+                    </p>
+                </div>
+                <button type="button" class = "collapsible">Currency Exchange</button>
+                <div class = "content">
+                    <p>
+                        In order to access the currency exchange, type your query in this format: 
+                        "x 'amount of money' 'current currency' to 'desired currency'"
+                    </p>
+                    <p>
+                        Example: x 5 USD to myr
+                    </p>
+                    <p>
+                        NOTE: Currency must be in exact currency codes, i.e. Ringgit Malaysia must be in MYR or japanese yen in JPY
+                    </p>
+                </div>
+                <button type="button" class = "collapsible">Binomial Expansion Calculator</button>
+                <div class = "content">
+                    <p>
+                        In order to access the binomial exapansion calculator, type "b" with a trailing whitespace, 
+                        followed by the expression you want to calculate within the search bar.
+                    </p>
+                    <p>
+                        Example: "b (2x+5)^2")
+                    </p>
+                    <p>
+                        NOTE: expression cannot have more than one variable per coefficient and the power that the expression is raised to cannot exceed 20.
+                    </p>
+                </div>
+                <button type="button" class = "collapsible">Karnaugh Map and Truth Table Plotter</button>
+                <div class = "content">
+                    <p>
+                        In order to access the calculator function, type "c" with a trailing whitespace, 
+                        followed by the expression you want to calculate within the search bar.
+                    </p>
+                    <p>
+                        Example: "c (250)*100-25")
+                    </p>
+                </div>
+            
+       </div>
+       
+    </body>
+</html>
