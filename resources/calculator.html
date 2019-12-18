@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+   <head>
+       <script>
+           function submission(){
+               document.getElementById("form").submit();
+           }
+       </script>
+        <title>Calculator</title>
+        <link rel=stylesheet type="text/css" href="calc.css">
+        <link rel="shortcut icon" type="image/png" href="https://i.imgur.com/54lUTMx.png"/>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+       <div id ="searchbar">
+            <img src="https://i.imgur.com/54lUTMx.png" alt="googol logo" id = "logoimg">
+            <form id="form" action="http://localhost:8080/jacksteam/googol/api/query" method="GET">
+                <input type="text" placeholder= "What are you looking for?" value ="c " id="query" name="q" onkeypress="querySubmit">
+            </form>
+       </div>
+       <div id ="calcdiv">
+         <table id = "calculator">
+            <tr>
+                <td><button type = "button" class = "nums" name ="clear" onclick = "query.value = 'c '"> c </button></td>
+                <td><button type="button" class = "nums" id="bracket1" name="bracket1" onclick="query.value += '('"> ( </button></td>
+                <td><button type="button"  class = "nums" id="bracket2" name="bracket2" onclick="query.value +=')'"> )</button></td>
+                <td><button type = "button" class = "nums" name = "backspace" onclick = "query.value = 
+                            query.value.slice(0, query.value.length -1)"><img src = "backspace.png" id = "backimg"> </button></td>
+            </tr>
+            <tr>
+               <td><button type="button" class = "nums" name="one"  onclick="query.value += '1'">1</button></td>
+               <td><button type="button" class = "nums" name="two"  onclick="query.value += '2'">2 </button></td>
+               <td><button type="button" class = "nums" name="three"  onclick="query.value += '3'">3 </button></td>
+               <td><button type="button" class="nums" name="plus" onclick="query.value += '+'">+</button></td>
+            </tr>
+            <tr>
+               <td><button type="button" class = "nums" name="four" onclick="query.value += '4'">4</button></td>
+               <td><button type="button" class = "nums" name="five" onclick="query.value += '5'">5</button></td>
+               <td><button type="button" class = "nums" name="six" onclick="query.value += '6'">6</button></td>
+               <td><button type="button" class="nums" name="minus" value="-" onclick="query.value += '-'"> -</button></td>
+            </tr>
+            <tr>
+               <td><button type="button" class = "nums" name="seven"  onclick="query.value += '7'"> 7</button></td>
+               <td><button type="button" class = "nums" name="eight"  onclick="query.value += '8'">8</button></td>
+               <td><button type="button" class = "nums" name="nine"  onclick="query.value += '9'">9</button></td>
+               <td><button type="button" class="nums" name="times" value="x" onclick="query.value += '*'">*</button></td>
+            </tr>
+            <tr>
+               <td><button type="button" class = "nums" name="zero" onclick="query.value += '0'">0</button></td>
+               <td><button type = "button" class = "nums" id = "dot" onclick = "query.value += '.'">.</button></td>
+               <td><button type="button" class = "nums" name="doit" value="=" onclick="submission()"> = </button></td>
+               <td><button type="button" class="nums" name="div" value="/" onclick="query.value += '/'"> /</button></td>
+            </tr>
+         </table>
+       </div>
+   </body>
+</html>
