@@ -130,7 +130,7 @@ public class BinomialService{
                     if(!aV.equals(" ")){
                         finale += aV;
                         if (power != 1){
-                            finale += "^" + (aP*j);
+                            finale += "<sup>" + (aP*j) + "</sup>";
                         }
                     }
                     
@@ -145,7 +145,7 @@ public class BinomialService{
                     if(!bV.equals(" ")){
                         finale += bV;
                         if (power != 1){
-                            finale += "^" + (bP*power);
+                            finale += "<sup>" + (bP*power) + "</sup>";
                         }
                         
                     }
@@ -160,7 +160,7 @@ public class BinomialService{
                     if(!bV.equals(" ")){
                         finale += bV;
                         if (power != 1){
-                            finale += "^" + (bP*power);
+                            finale += "<sup>" + (bP*power) + "</sup>";
                         }
                     }
                     
@@ -172,12 +172,12 @@ public class BinomialService{
                     if(!aV.equals(" ")){
                         finale += aV;
                         if(aP*j != 1)
-                        finale += "^" + (aP*j);
+                        finale += "<sup>" + (aP*j) + "</sup>";
                     }
                     if(!bV.equals(" ")){
                         finale += bV;
                         if(bP*i != 1)
-                        finale += "^" + (bP*i);
+                        finale += "<sup>" + (bP*i) + "</sup>";
                     }
                     finale += " ";
                 }else{
@@ -186,12 +186,12 @@ public class BinomialService{
                     if(!aV.equals(" ")){
                         finale += aV;
                         if(aP*j != 1)
-                        finale += "^" + (aP*j);
+                        finale += "<sup>" + (aP*j) + "</sup>";
                     }
                     if(!bV.equals(" ")){
                         finale += bV;
                         if(bP*i != 1)
-                        finale += "^" + (bP*i);
+                        finale += "<sup>" + (bP*i) + "</sup>";
                     }
                     finale += " ";
                 }
