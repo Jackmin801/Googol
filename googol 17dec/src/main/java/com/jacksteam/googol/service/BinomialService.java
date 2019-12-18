@@ -35,7 +35,7 @@ public class BinomialService{
             store = 1;
         }
         //run the program
-        return exp+" = "+binomial(splitArray[0], store);
+        return exp.replace("^", "<sup>")+"</sup>"+" = "+binomial(splitArray[0], store);
     
     }
     
