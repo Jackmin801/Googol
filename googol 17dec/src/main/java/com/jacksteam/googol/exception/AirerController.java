@@ -21,7 +21,7 @@ public class AirerController implements ErrorController {
           errorPage += "<body><div height=100%><div height=600px><h4>Error "+statusCode+" </h4>";
           errorPage += "<img height=60% width=40% src=\"http://localhost:8080/catmilo.png\">";
           errorPage += "</div><div height=200px><h1>Oh No! We spilled the Milo.</h1><h2>Get a new cup of Milo</h2><br>";
-          errorPage +="<a href=\"http://localhost:8080/jacksteam/googol/api/query?q=hello\"><img src=\"http://localhost:8080/milostix.png\" height=200></a>";       
+          errorPage +="<a href=\"http://localhost:8080\"><img src=\"http://localhost:8080/milostix.png\" height=200></a>";       
           errorPage +="</div></div></body></html>";            
                       
         return errorPage;   
