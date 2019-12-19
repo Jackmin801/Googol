@@ -207,19 +207,19 @@ public class KMap{
             //Finds NOT operators and negates the following variable's value
             while(tempString.contains("!")){
                     int index = tempString.indexOf("!");
-                    if(tempString.charAt(index+1) > '0'){
-                        tempString = tempString.substring(0, index) + '1' + tempString.substring(index+1);
+                    if(tempString.charAt(index+1) == '0'){
+                        tempString = tempString.substring(0, index) + '1' + tempString.substring(index+2);
                     }else{
-                        tempString = tempString.substring(0, index) + '0' + tempString.substring(index+1);
+                        tempString = tempString.substring(0, index) + '0' + tempString.substring(index+2);
                     }
                 }
                 
                 while(tempString.contains("~")){
                     int index = tempString.indexOf("~");
-                    if(tempString.charAt(index+1) > '0'){
-                        tempString = tempString.substring(0, index) + '1' + tempString.substring(index+1);
+                    if(tempString.charAt(index+1) == '0'){
+                        tempString = tempString.substring(0, index) + '1' + tempString.substring(index+2);
                     }else{
-                        tempString = tempString.substring(0, index) + '0' + tempString.substring(index+1);
+                        tempString = tempString.substring(0, index) + '0' + tempString.substring(index+2);
                     }
                 }
 
