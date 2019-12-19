@@ -112,5 +112,11 @@ html {
  .feature1:hover{
      background-color: #4dc18b;
  }
+
+ #footnote{
+     padding-top:70px;
+     text-align: center;
+     color:#fff;
+ }
  
  
