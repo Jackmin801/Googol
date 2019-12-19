@@ -15,7 +15,7 @@ public class AirerController implements ErrorController {
   public String handleError(HttpServletRequest request) {
       Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
       //Exception exception = (Exception) request.getAttribute("javax.servlet.error.exception");
-      String errorPage ="<html><style>*{margin: 0;padding: 0;}body{text-align: center;background-color: #1a4531;color:white}h4{font-size: 4em;font-family: Verdana, Geneva, Tahoma, sans-serif;}html{height: 100%;}</style>";
+      String errorPage ="<html><style>*{margin: 0;padding: 0;}body{text-align: center;background-color: #1a4531;);color:white}h4{font-size: 4em;font-family: Verdana, Geneva, Tahoma, sans-serif;}html{height: 100%;}</style>";
           errorPage += "<head><title>MILO SPILL!!!</title></head>";
           //errorPage += String.format("<body><div height=100%><div height=600px><h4>Error %s </h4>",statusCode);
           errorPage += "<body><div height=100%><div height=600px><h4>Error "+statusCode+" </h4>";

@@ -21,13 +21,14 @@ public class TTTBot{
     String axe ="<img src=\"http://localhost:8080/Cross.png\" alt=\"X\" length=\"100%\" width=\"100%\">";
     String owe ="<img src=\"http://localhost:8080/Circle.png\" alt=\"O\" length=\"100%\" width=\"100%\">";
     String empty ="<img src=\"http://localhost:8080/none.png\" alt=\"-\" length=\"100%\" width=\"100%\">";
+    String header = "<header><a href=\"http://localhost:8080\"><img src=\"http://localhost:8080/googologo.png\" height=\"200\" width=\"200\"></a><form id=\"form\" action=\"http://localhost:8080/jacksteam/googol/api/query\" method=\"GET\"><input type=\"text\" placeholder=\"What are you looking for?\" id=\"query\" name=\"q\" onkeypress=\"querySubmit\"></form></header>";
 
     String head = headConstruct();
     public String headConstruct(){
         String head = "<head>";
         head +="<title>Milo Bot</title>";
         head +="<link rel=\"icon\" href=\"http://localhost:8080/tabicon.png\">";
-        head +="<style>* {margin:0;padding:0;}a {color:#1e5631;font-weight: bold;}body {background-color:#1e5631}h4{padding: 0;margin:0;color:#4c9a2a;}header{text-align: center;color:white;background-color: #1a4531;display:grid;grid-template-columns:1fr 4fr;}.container{text-align: center;background-color: #a4de02;padding: 1em;margin:1em;border-radius: 50px;}#form{margin: 7%;}#query{color:#999;padding:1em;width: 80%;}</style>";
+        head +="<style>* {margin:0;padding:0;}a {color:#1e5631;font-weight: bold;}body {background-color:#1e5631}h4{padding: 0;margin:0;color:#4c9a2a;}header{text-align: center;color:white;background-image:url(http://localhost:8080/background.png);display:grid;grid-template-columns:1fr 4fr;}.container{text-align: center;background-color: #a4de02;padding: 1em;margin:1em;border-radius: 50px;}#form{margin: 7%;}#query{color:#999;padding:1em;width: 80%;}</style>";
         head +="<style>.nested {padding-left:30%;padding-right: 30%;display:grid;grid-template-columns:repeat(3, 1fr);grid-gap:1em;}</style>";
         head +="</head>";
 
@@ -50,8 +51,9 @@ public class TTTBot{
         //Body
         out += "<body>";
             //Header
-            out +="<header><img src=\"http://localhost:8080/googologo.png\" height=\"200\" width=\"200\"><form id=\"form\" action=\"http://localhost:8080/jacksteam/googol/api/query\" method=\"GET\"><input type=\"text\" placeholder=\"What are you looking for?\" id=\"query\" name=\"q\" onkeypress=\"querySubmit\"></form></header>";
-    
+            //out +="<header><img src=\"http://localhost:8080/googologo.png\" height=\"200\" width=\"200\"><form id=\"form\" action=\"http://localhost:8080/jacksteam/googol/api/query\" method=\"GET\"><input type=\"text\" placeholder=\"What are you looking for?\" id=\"query\" name=\"q\" onkeypress=\"querySubmit\"></form></header>";
+            out += header;
+
             //Status Prompt
             TTT game = tttService.newGame();
             char[] uwu = game.printBoard();
@@ -93,7 +95,8 @@ public class TTTBot{
         //Body 
         out += "<body>";
             //Header
-            out +="<header><img src=\"http://localhost:8080/googologo.png\" height=\"200\" width=\"200\"><form id=\"form\" action=\"http://localhost:8080/jacksteam/googol/api/query\" method=\"GET\"><input type=\"text\" placeholder=\"What are you looking for?\" id=\"query\" name=\"q\" onkeypress=\"querySubmit\"></form></header>";
+            out += header;
+            //out +="<header><img src=\"http://localhost:8080/googologo.png\" height=\"200\" width=\"200\"><form id=\"form\" action=\"http://localhost:8080/jacksteam/googol/api/query\" method=\"GET\"><input type=\"text\" placeholder=\"What are you looking for?\" id=\"query\" name=\"q\" onkeypress=\"querySubmit\"></form></header>";
         
             //Status Prompt
             TTT game = tttService.newGame();
@@ -134,7 +137,8 @@ public class TTTBot{
         //Body
         out += "<body>";
             //Header
-            out +="<header><img src=\"http://localhost:8080/googologo.png\" height=\"200\" width=\"200\"><form id=\"form\" action=\"http://localhost:8080/jacksteam/googol/api/query\" method=\"GET\"><input type=\"text\" placeholder=\"What are you looking for?\" id=\"query\" name=\"q\" onkeypress=\"querySubmit\"></form></header><body>";
+            out += header;
+            //out +="<header><img src=\"http://localhost:8080/googologo.png\" height=\"200\" width=\"200\"><form id=\"form\" action=\"http://localhost:8080/jacksteam/googol/api/query\" method=\"GET\"><input type=\"text\" placeholder=\"What are you looking for?\" id=\"query\" name=\"q\" onkeypress=\"querySubmit\"></form></header><body>";
 
             //Bots Move
             TTT game = tttService.play(id,move);
